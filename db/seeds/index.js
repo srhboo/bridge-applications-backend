@@ -8,22 +8,24 @@ const users = createNUsers(30);
 const userIdentifyingInfo = createUserIdentifyingInfo(users);
 
 exports.seed = knex => {
-  const seedIdentifyingInfo = () =>
-    knex("identifying_info")
-      .del()
-      .then(() => knex("identifying_info").insert(IDENTIFYING_INFO));
-
-  const seedUsers = () =>
-    knex("users")
-      .del()
-      .then(() => knex("users").insert(users));
-
-  const seedUserIdentifyingInfo = () =>
-    knex("user_identifying_info")
-      .del()
-      .then(() => knex("user_identifying_info").insert(userIdentifyingInfo));
-
-  return seedIdentifyingInfo()
-    .then(seedUsers)
-    .then(seedUserIdentifyingInfo);
+  return knex("user_identifying_info")
+    .del()
+    .then(() => knex("identifying_info").del())
+    .then(() => knex("users").del())
+    .then(() => knex("users").insert(users))
+    .then(() =>
+      knex.raw(`SELECT setval('users_id_seq', (SELECT MAX(id) from "users"))`)
+    )
+    .then(() => knex("identifying_info").insert(IDENTIFYING_INFO))
+    .then(() =>
+      knex.raw(
+        `SELECT setval('identifying_info_id_seq', (SELECT MAX(id) from "identifying_info"))`
+      )
+    )
+    .then(() => knex("user_identifying_info").insert(userIdentifyingInfo))
+    .then(() =>
+      knex.raw(
+        `SELECT setval('user_identifying_info_id_seq', (SELECT MAX(id) from "user_identifying_info"))`
+      )
+    );
 };

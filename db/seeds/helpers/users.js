@@ -1,13 +1,9 @@
 const { getRandomEntry } = require("./random");
 const faker = require("faker");
-
-const EMPLOYMENT_STATUSES = [
-  "full_time",
-  "part_time",
-  "in_school",
-  "looking",
-  "not_looking"
-];
+const R = require("ramda");
+const {
+  USER_EMPLOYMENT_STATUS
+} = require("../../../src/routes/users/users.constants");
 
 const createUser = i => {
   const firstName = faker.name.firstName(1);
@@ -18,11 +14,11 @@ const createUser = i => {
     last_name: lastName,
     email: faker.internet.email(firstName, lastName),
     pronouns: "she/they",
-    employment_status: getRandomEntry(EMPLOYMENT_STATUSES),
+    employment_status: getRandomEntry(R.values(USER_EMPLOYMENT_STATUS)),
     employer: faker.company.companyName()
   };
 };
 
-const createNUsers = n => Array.from(Array(n)).map((x, i) => createUser(i));
+const createNUsers = n => Array.from(Array(n)).map((x, i) => createUser(i + 1));
 
 module.exports = { createNUsers };

@@ -56,20 +56,6 @@ const get = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  // .then(users => {
-  //   if (users.length === 0) {
-  //     return res.status(404).json({ error: "user not found" });
-  //   }
-  //   return res.json({
-  //     user: {
-  //       ...users[0],
-  //       identifying_info: users.map(user => user.identifying_info)
-  //     }
-  //   });
-  // })
-  // .catch(err => {
-  //   next(err);
-  // });
 };
 
 const create = (req, res, next) => {
@@ -100,7 +86,8 @@ const create = (req, res, next) => {
         pronouns,
         employment_status
       })
-      .returning("*");
+      .returning("*")
+      .then(users => users.length && users[0]);
 
   const addNewIdentities = identities => {
     return database("identifying_info")
@@ -109,57 +96,34 @@ const create = (req, res, next) => {
         const identitiesToAdd = identities.filter(
           identity => !existingIdentities.find(({ name }) => name === identity)
         );
-        database("identifying_info").insert(
+        return database("identifying_info").insert(
           identitiesToAdd.map(name => ({
             name,
             is_gender_related: true,
             is_user_generated: true
           }))
         );
-      });
+      })
+      .then(() =>
+        database("identifying_info")
+          .select()
+          .whereIn("name", identities)
+      );
   };
   const addUserIdentities = user => {
-    addNewIdentities(identifying_info).then();
+    addNewIdentities(identifying_info).then(identities =>
+      database("user_identifying_info").insert(
+        identities.map(({ id }) => ({
+          user_id: user.id,
+          identifying_info_id: id
+        }))
+      )
+    );
   };
-  // return database("users")
-  //   .insert({ first_name, last_name, email, pronouns, employment_status })
-  //   .returning("*")
-  //   .then(user => {
-  //     // req.body.identifying_info = [{ name: '', isGender: boolean}]
-  //     const { identifying_info } = req.body;
-  //     database("identifying_info")
-  //       .select()
-  //       .whereIn("name", identifying_info.map(info => info.name))
-  //       .then(existing => {
-  //         if (existing.length) {
-  //           database("user_identifying_info")
-  //             .insert(existing.map(info => {
-  //               return {
-  //                 user_id: users[0].id,
-  //                 identifying_info_id: info.id
-  //               }
-  //             }))
-  //             .then(() => {
-  //               if(existing.length === identifying_info.length) {
-  //                 return res.json({
-  //                   user: {
-  //                     ...users[0],
-  //                     identifying_info: existing
-  //                   }
-  //                 })
-  //               }
-
-  //             });
-  //             const new_infos = identifying_info.filter(info => !existing.find(i => i.name === info.name));
-  //             database("identifying_info").insert(new_infos).returning('id').then(new_nfos => {
-
-  //             })
-  //           return res.json({ user });
-  //         }
-  //       });
-  //     return res.json({ user });
-  //   })
-  //   .catch(error => next(error));
+  return addUser()
+    .then(addUserIdentities)
+    .then(() => res.json({ user }))
+    .catch(err => next(err));
 };
 
 module.exports = {
