@@ -32,6 +32,8 @@ router.post(
   usersController.create
 );
 router.get("/:id", usersController.get);
+router.put("/:id", usersController.update);
+router.delete("/:id", usersController.del);
 
 module.exports = {
   usersRouter: router

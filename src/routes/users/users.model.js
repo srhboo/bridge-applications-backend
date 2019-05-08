@@ -1,26 +1,62 @@
-const { Model } = require("objection");
+const { Model, transaction } = require("objection");
 const R = require("ramda");
 const { USER_EMPLOYMENT_STATUS } = require("./users.constants");
 
 class User extends Model {
-  static insertUser({
+  static getUserById({ id }) {
+    return User.query().findById(id);
+  }
+  static getAllUsers() {
+    return User.query().select();
+  }
+  static async insertUser({
     first_name,
     last_name,
     email,
     employment_status,
     employer,
-    pronouns
+    pronouns,
+    identifying_info
   }) {
-    return User.query()
-      .insert({
-        first_name,
-        last_name,
-        email,
-        employment_status,
-        employer,
-        pronouns
+    const IdentifyingInfo = require("../identifying-info/identifying-info.model");
+    const knex = User.knex();
+    const identifying_info_with_ids = await Promise.all(
+      identifying_info.map(async info => {
+        const { name, is_gender_related, id } = info;
+        if (id) {
+          return info;
+        }
+        const existingInfo = await IdentifyingInfo.query().where("name", name);
+        return existingInfo.length
+          ? existingInfo[0]
+          : { name, is_gender_related, is_user_generated: true };
       })
-      .returning("*");
+    );
+    try {
+      const user = await transaction(knex, async trx =>
+        User.query(trx).upsertGraphAndFetch(
+          {
+            first_name,
+            last_name,
+            email,
+            employment_status,
+            employer,
+            pronouns,
+            identifying_info: identifying_info_with_ids
+          },
+          { relate: true }
+        )
+      );
+      return user;
+    } catch (error) {
+      throw new Error("error");
+    }
+  }
+  static async updateUser({ id, userInfo }) {
+    return User.query().patchAndFetchById(id, userInfo);
+  }
+  static async deleteUser({ id }) {
+    return User.query().deleteById(id);
   }
   static get tableName() {
     return "users";
