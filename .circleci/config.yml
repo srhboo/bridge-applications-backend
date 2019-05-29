@@ -13,7 +13,7 @@ jobs:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install
       - save_cache:
           name: Save Yarn Package cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
@@ -23,7 +23,7 @@ jobs:
           name: lint
           command: yarn lint:ci
           environment:
-            ESLINT_REPORT: ./reports/eslint/eslint-results.xml
+            ESLINT_REPORT: ./reports/eslint/eslint.xml
           when: always
       - store_artifacts:
           path: reports
