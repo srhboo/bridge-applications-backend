@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/api/index.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/api/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/db.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/db.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/index.js">
+<testcase time="0" name="org.eslint.import/no-extraneous-dependencies"><failure message="&apos;body-parser&apos; should be listed in the project&apos;s dependencies. Run &apos;npm i -S body-parser&apos; to add it"><![CDATA[line 3, col 20, Error - &apos;body-parser&apos; should be listed in the project&apos;s dependencies. Run &apos;npm i -S body-parser&apos; to add it (import/no-extraneous-dependencies)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-console"><failure message="Unexpected console statement."><![CDATA[line 29, col 3, Warning - Unexpected console statement. (no-console)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/middleware/error-handler.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 3, col 38, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;err&apos;."><![CDATA[line 5, col 24, Error - Assignment to property of function parameter &apos;err&apos;. (no-param-reassign)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="12" errors="12" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/applications/applications.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;config&apos; is assigned a value but never used."><![CDATA[line 1, col 7, Error - &apos;config&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 2, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 3, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`express-validator/check` import should occur before import of `../../../knexfile`"><![CDATA[line 3, col 37, Error - `express-validator/check` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of async arrow function."><![CDATA[line 6, col 37, Error - Expected to return a value at the end of async arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;User&apos; is not defined."><![CDATA[line 8, col 32, Error - &apos;User&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;applications&apos; is assigned a value but never used."><![CDATA[line 18, col 11, Error - &apos;applications&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;user&apos; is not defined."><![CDATA[line 19, col 14, Error - &apos;user&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;Application&apos; is not defined."><![CDATA[line 31, col 31, Error - &apos;Application&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;Application&apos; is not defined."><![CDATA[line 44, col 31, Error - &apos;Application&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-shadow"><failure message="&apos;del&apos; is already declared in the upper scope."><![CDATA[line 56, col 11, Error - &apos;del&apos; is already declared in the upper scope. (no-shadow)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;Application&apos; is not defined."><![CDATA[line 56, col 23, Error - &apos;Application&apos; is not defined. (no-undef)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="6" errors="6" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/applications/applications.model.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;transaction&apos; is assigned a value but never used."><![CDATA[line 1, col 16, Error - &apos;transaction&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;R&apos; is assigned a value but never used."><![CDATA[line 2, col 7, Error - &apos;R&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;Application&apos; is defined but never used."><![CDATA[line 6, col 7, Error - &apos;Application&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 31, col 21, Error - Unexpected require(). (global-require)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 39, col 21, Error - Unexpected require(). (global-require)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;User&apos; is not defined."><![CDATA[line 49, col 18, Error - &apos;User&apos; is not defined. (no-undef)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/applications/applications.router.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 2, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 4, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`knex` import should occur before import of `../../../knexfile`"><![CDATA[line 4, col 18, Error - `knex` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="6" errors="6" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/cohorts/cohorts.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;config&apos; is assigned a value but never used."><![CDATA[line 1, col 7, Error - &apos;config&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 2, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 3, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`express-validator/check` import should occur before import of `../../../knexfile`"><![CDATA[line 3, col 37, Error - `express-validator/check` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of async arrow function."><![CDATA[line 6, col 37, Error - Expected to return a value at the end of async arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-shadow"><failure message="&apos;del&apos; is already declared in the upper scope."><![CDATA[line 56, col 11, Error - &apos;del&apos; is already declared in the upper scope. (no-shadow)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/cohorts/cohorts.model.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;transaction&apos; is assigned a value but never used."><![CDATA[line 1, col 16, Error - &apos;transaction&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;R&apos; is assigned a value but never used."><![CDATA[line 2, col 7, Error - &apos;R&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 30, col 21, Error - Unexpected require(). (global-require)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/cohorts/cohorts.router.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 2, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 4, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`knex` import should occur before import of `../../../knexfile`"><![CDATA[line 4, col 18, Error - `knex` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/health/health.controller.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/health/health.controller.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/health/health.router.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/health/health.router.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="6" errors="6" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/identifying-info/identifying-info.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;config&apos; is assigned a value but never used."><![CDATA[line 1, col 7, Error - &apos;config&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 2, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 3, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`express-validator/check` import should occur before import of `../../../knexfile`"><![CDATA[line 3, col 37, Error - `express-validator/check` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of async arrow function."><![CDATA[line 6, col 37, Error - Expected to return a value at the end of async arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-shadow"><failure message="&apos;del&apos; is already declared in the upper scope."><![CDATA[line 60, col 11, Error - &apos;del&apos; is already declared in the upper scope. (no-shadow)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/identifying-info/identifying-info.model.js">
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 21, col 18, Error - Unexpected require(). (global-require)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/identifying-info/identifying-info.router.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 2, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 4, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`knex` import should occur before import of `../../../knexfile`"><![CDATA[line 4, col 18, Error - `knex` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/users/users.constants.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/users/users.constants.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="6" errors="6" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/users/users.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;config&apos; is assigned a value but never used."><![CDATA[line 1, col 7, Error - &apos;config&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 2, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;check&apos; is assigned a value but never used."><![CDATA[line 3, col 9, Error - &apos;check&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`express-validator/check` import should occur before import of `../../../knexfile`"><![CDATA[line 3, col 37, Error - `express-validator/check` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of async arrow function."><![CDATA[line 6, col 37, Error - Expected to return a value at the end of async arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-shadow"><failure message="&apos;del&apos; is already declared in the upper scope."><![CDATA[line 56, col 11, Error - &apos;del&apos; is already declared in the upper scope. (no-shadow)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="8" errors="8" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/users/users.model.js">
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;first_name&apos; is not in camel case."><![CDATA[line 15, col 5, Error - Identifier &apos;first_name&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;last_name&apos; is not in camel case."><![CDATA[line 16, col 5, Error - Identifier &apos;last_name&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;employment_status&apos; is not in camel case."><![CDATA[line 18, col 5, Error - Identifier &apos;employment_status&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;identifying_info&apos; is not in camel case."><![CDATA[line 21, col 5, Error - Identifier &apos;identifying_info&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 23, col 29, Error - Unexpected require(). (global-require)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;identifying_info_with_ids&apos; is not in camel case."><![CDATA[line 25, col 11, Error - Identifier &apos;identifying_info_with_ids&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;is_gender_related&apos; is not in camel case."><![CDATA[line 27, col 23, Error - Identifier &apos;is_gender_related&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 93, col 29, Error - Unexpected require(). (global-require)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/routes/users/users.router.js">
+<testcase time="0" name="org.eslint.import/order"><failure message="`knex` import should occur before import of `../../../knexfile`"><![CDATA[line 4, col 18, Error - `knex` import should occur before import of `../../../knexfile` (import/order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of arrow function."><![CDATA[line 26, col 21, Error - Expected to return a value at the end of arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-promise-reject-errors"><failure message="Expected the Promise rejection reason to be an Error."><![CDATA[line 28, col 18, Error - Expected the Promise rejection reason to be an Error. (prefer-promise-reject-errors)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/utils/authentication.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 1, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-use-before-define"><failure message="&apos;config&apos; was used before it was defined."><![CDATA[line 1, col 34, Error - &apos;config&apos; was used before it was defined. (no-use-before-define)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/utils/authorization.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;getAuthToken&apos; is assigned a value but never used."><![CDATA[line 1, col 9, Error - &apos;getAuthToken&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;database&apos; is assigned a value but never used."><![CDATA[line 3, col 7, Error - &apos;database&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.import/order"><failure message="`knex` import should occur before import of `./authentication`"><![CDATA[line 3, col 18, Error - `knex` import should occur before import of `./authentication` (import/order)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/utils/errors.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/utils/errors.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/utils/logger.js">
+<testcase time="0" name="/Users/sarahboo/Documents/bridge/bridge-applications-backend/src/utils/logger.js" />
+</testsuite>
+</testsuites>

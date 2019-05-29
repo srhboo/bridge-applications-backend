@@ -7,7 +7,7 @@
     "test": "jest",
     "dev": "nodemon src/index.js",
     "lint": "eslint src --fix",
-    "lint:ci": "eslint src --format junit --output-file report.xml",
+    "lint:ci": "eslint src --format junit --output-file $ESLINT_REPORT",
     "test:watch": "jest --watch",
     "db:migrate:latest": "knex migrate:latest",
     "db:migrate:rollback": "knex migrate:rollback",
