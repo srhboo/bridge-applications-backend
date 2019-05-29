@@ -1,7 +1,7 @@
-const config = require("../../../knexfile");
-const database = require("../../db");
-const { check, validationResult } = require("express-validator/check");
-const IdentifyingInfo = require("./identifying-info.model");
+const config = require('../../../knexfile');
+const database = require('../../db');
+const { check, validationResult } = require('express-validator/check');
+const IdentifyingInfo = require('./identifying-info.model');
 
 const list = async (req, res, next) => {
   try {
@@ -13,10 +13,10 @@ const list = async (req, res, next) => {
 };
 
 const get = async (req, res, next) => {
-  const id = req.params.id;
+  const { id } = req.params;
   try {
     const identifyingInfo = await IdentifyingInfo.getIdentifyingInfoById({
-      id
+      id,
     });
     res.json(identifyingInfo);
   } catch (error) {
@@ -31,7 +31,7 @@ const create = async (req, res, next) => {
   }
   try {
     const identifyingInfo = await IdentifyingInfo.insertIdentifyingInfo(
-      req.body
+      req.body,
     );
     res.json(identifyingInfo);
   } catch (error) {
@@ -47,7 +47,7 @@ const update = async (req, res, next) => {
   try {
     const cohort = await IdentifyingInfo.updateIdentifyingInfo({
       id: req.params.id,
-      identifyingInfo: req.body
+      identifyingInfo: req.body,
     });
     res.json(cohort);
   } catch (error) {
@@ -69,5 +69,5 @@ module.exports = {
   get,
   create,
   update,
-  del
+  del,
 };

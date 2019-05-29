@@ -1,7 +1,7 @@
-const config = require("../../../knexfile");
-const database = require("../../db");
-const { check, validationResult } = require("express-validator/check");
-const User = require("./users.model");
+const config = require('../../../knexfile');
+const database = require('../../db');
+const { check, validationResult } = require('express-validator/check');
+const User = require('./users.model');
 
 const list = async (req, res, next) => {
   try {
@@ -13,9 +13,9 @@ const list = async (req, res, next) => {
 };
 
 const get = async (req, res, next) => {
-  const id = req.params.id;
+  const { id } = req.params;
   try {
-    const user = await User.getUserById({ id }).eager("identifying_info");
+    const user = await User.getUserById({ id }).eager('identifying_info');
     res.json(user);
   } catch (error) {
     next(error);
@@ -43,7 +43,7 @@ const update = async (req, res, next) => {
   try {
     const user = await User.updateUser({
       id: req.params.id,
-      userInfo: req.body
+      userInfo: req.body,
     });
     res.json(user);
   } catch (error) {
@@ -65,5 +65,5 @@ module.exports = {
   get,
   create,
   update,
-  del
+  del,
 };

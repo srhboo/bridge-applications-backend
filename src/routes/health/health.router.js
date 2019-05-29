@@ -1,11 +1,11 @@
 const express = require('express');
 
-const { healthController } = require("./health.controller");
+const { healthController } = require('./health.controller');
 
 const router = express.Router();
 
-router.get("", healthController);
+router.get('', healthController);
 
 module.exports = {
-  healthRouter: router
-}
+  healthRouter: router,
+};

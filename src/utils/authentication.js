@@ -1,11 +1,11 @@
-const config = require("../../knexfile");
-const database = require("knex")(config);
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
+const database = require('knex')(config);
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
+const config = require('../../knexfile');
 
-const decodeBase64 = base64 => Buffer.from(base64, "base64").toString("ascii");
-const getAuthToken = req => {
-  const [, encodedToken] = req.headers.authorization.split(" ");
+const decodeBase64 = base64 => Buffer.from(base64, 'base64').toString('ascii');
+const getAuthToken = (req) => {
+  const [, encodedToken] = req.headers.authorization.split(' ');
   return decodeBase64(encodedToken);
 };
 
@@ -14,13 +14,13 @@ const authenticateUser = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://srhboo.auth0.com/.well-known/jwks.json`
+    jwksUri: 'https://srhboo.auth0.com/.well-known/jwks.json',
   }),
 
   // Validate the audience and the issuer.
   // audience: "urn:my-resource-server",
-  issuer: "https://srhboo.auth0.com/",
-  algorithms: ["RS256"]
+  issuer: 'https://srhboo.auth0.com/',
+  algorithms: ['RS256'],
 });
 
 // async (req, res, next) => {

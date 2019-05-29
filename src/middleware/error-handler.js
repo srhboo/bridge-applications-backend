@@ -1,4 +1,4 @@
-const logger = require("../utils/logger").logger;
+const { logger } = require('../utils/logger');
 
 const errorHandler = (err, req, res, next) => {
   logger.error(err.message);
@@ -7,5 +7,5 @@ const errorHandler = (err, req, res, next) => {
 };
 
 module.exports = {
-  errorHandler
+  errorHandler,
 };

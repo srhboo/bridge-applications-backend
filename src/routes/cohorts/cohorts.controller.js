@@ -1,7 +1,7 @@
-const config = require("../../../knexfile");
-const database = require("../../db");
-const { check, validationResult } = require("express-validator/check");
-const Cohorts = require("./cohorts.model");
+const config = require('../../../knexfile');
+const database = require('../../db');
+const { check, validationResult } = require('express-validator/check');
+const Cohorts = require('./cohorts.model');
 
 const list = async (req, res, next) => {
   try {
@@ -13,7 +13,7 @@ const list = async (req, res, next) => {
 };
 
 const get = async (req, res, next) => {
-  const id = req.params.id;
+  const { id } = req.params;
   try {
     const cohort = await Cohorts.getCohortById({ id });
     res.json(cohort);
@@ -43,7 +43,7 @@ const update = async (req, res, next) => {
   try {
     const cohort = await Cohorts.updateCohort({
       id: req.params.id,
-      cohortInfo: req.body
+      cohortInfo: req.body,
     });
     res.json(cohort);
   } catch (error) {
@@ -65,5 +65,5 @@ module.exports = {
   get,
   create,
   update,
-  del
+  del,
 };

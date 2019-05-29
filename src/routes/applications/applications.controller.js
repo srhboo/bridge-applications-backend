@@ -1,7 +1,7 @@
-const config = require("../../../knexfile");
-const database = require("../../db");
-const { check, validationResult } = require("express-validator/check");
-const Applications = require("./applications.model");
+const config = require('../../../knexfile');
+const database = require('../../db');
+const { check, validationResult } = require('express-validator/check');
+const Applications = require('./applications.model');
 
 const list = async (req, res, next) => {
   try {
@@ -13,7 +13,7 @@ const list = async (req, res, next) => {
 };
 
 const get = async (req, res, next) => {
-  const id = req.params.id;
+  const { id } = req.params;
   try {
     const applications = await Applications.getApplicationById({ id });
     res.json(user);
@@ -43,7 +43,7 @@ const update = async (req, res, next) => {
   try {
     const application = await Application.updateApplication({
       id: req.params.id,
-      applicationInfo: req.body
+      applicationInfo: req.body,
     });
     res.json(application);
   } catch (error) {
@@ -65,5 +65,5 @@ module.exports = {
   get,
   create,
   update,
-  del
+  del,
 };
