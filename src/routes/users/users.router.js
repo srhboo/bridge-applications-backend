@@ -2,12 +2,17 @@ const express = require("express");
 const { check } = require("express-validator/check");
 const config = require("../../../knexfile");
 const database = require("knex")(config);
+const { authorizeUserForEndpoint } = require("../../utils/authorization");
 
 const usersController = require("./users.controller");
 
 const router = express.Router();
 
-router.get("", usersController.list);
+router.get(
+  "",
+  authorizeUserForEndpoint(["read:users:all"]),
+  usersController.list
+);
 router.post(
   "",
   [

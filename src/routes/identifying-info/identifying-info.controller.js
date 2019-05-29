@@ -1,12 +1,12 @@
 const config = require("../../../knexfile");
 const database = require("../../db");
 const { check, validationResult } = require("express-validator/check");
-const Cohorts = require("./cohorts.model");
+const IdentifyingInfo = require("./identifying-info.model");
 
 const list = async (req, res, next) => {
   try {
-    const cohorts = await Cohorts.getAllCohorts();
-    return res.json({ cohorts });
+    const identifyingInfo = await IdentifyingInfo.getAllIdentifyingInfo();
+    return res.json({ identifyingInfo });
   } catch (error) {
     next(error);
   }
@@ -15,8 +15,10 @@ const list = async (req, res, next) => {
 const get = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const cohort = await Cohorts.getCohortById({ id });
-    res.json(cohort);
+    const identifyingInfo = await IdentifyingInfo.getIdentifyingInfoById({
+      id
+    });
+    res.json(identifyingInfo);
   } catch (error) {
     next(error);
   }
@@ -28,8 +30,10 @@ const create = async (req, res, next) => {
     res.status(422).json({ errors: errors.array() });
   }
   try {
-    const cohort = await Cohorts.insertCohort(req.body);
-    res.json(cohort);
+    const identifyingInfo = await IdentifyingInfo.insertIdentifyingInfo(
+      req.body
+    );
+    res.json(identifyingInfo);
   } catch (error) {
     next(error);
   }
@@ -41,9 +45,9 @@ const update = async (req, res, next) => {
     res.status(422).json({ errors: errors.array() });
   }
   try {
-    const cohort = await Cohorts.updateCohort({
+    const cohort = await IdentifyingInfo.updateIdentifyingInfo({
       id: req.params.id,
-      cohortInfo: req.body
+      identifyingInfo: req.body
     });
     res.json(cohort);
   } catch (error) {
@@ -53,7 +57,7 @@ const update = async (req, res, next) => {
 
 const del = async (req, res, next) => {
   try {
-    const del = await Cohorts.deleteCohort({ id: req.params.id });
+    const del = await IdentifyingInfo.deleteIdentifying({ id: req.params.id });
     res.json(del);
   } catch (error) {
     next(error);

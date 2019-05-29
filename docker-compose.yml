@@ -6,7 +6,7 @@ services:
     build: ./
     command: yarn dev
     ports:
-      - 3000:3000
+      - 3001:3001
     volumes:
       - .:/app
     restart: unless-stopped

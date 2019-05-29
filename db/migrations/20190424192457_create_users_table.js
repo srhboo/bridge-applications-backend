@@ -19,6 +19,7 @@ exports.up = knex =>
         ])
         .notNullable();
       table.string("employer");
+      table.enu("role", ["admin", "user"]).notNullable();
     })
     .createTable("identifying_info", table => {
       table.increments();

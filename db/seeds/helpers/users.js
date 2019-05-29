@@ -15,7 +15,8 @@ const createUser = i => {
     email: faker.internet.email(firstName, lastName),
     pronouns: "she/they",
     employment_status: getRandomEntry(R.values(USER_EMPLOYMENT_STATUS)),
-    employer: faker.company.companyName()
+    employer: faker.company.companyName(),
+    role: i === 1 ? "admin" : "user"
   };
 };
 

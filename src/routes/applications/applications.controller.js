@@ -1,12 +1,12 @@
 const config = require("../../../knexfile");
 const database = require("../../db");
 const { check, validationResult } = require("express-validator/check");
-const Cohorts = require("./cohorts.model");
+const Applications = require("./applications.model");
 
 const list = async (req, res, next) => {
   try {
-    const cohorts = await Cohorts.getAllCohorts();
-    return res.json({ cohorts });
+    const applications = await User.getAllApplications();
+    return res.json({ applications });
   } catch (error) {
     next(error);
   }
@@ -15,8 +15,8 @@ const list = async (req, res, next) => {
 const get = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const cohort = await Cohorts.getCohortById({ id });
-    res.json(cohort);
+    const applications = await Applications.getApplicationById({ id });
+    res.json(user);
   } catch (error) {
     next(error);
   }
@@ -28,8 +28,8 @@ const create = async (req, res, next) => {
     res.status(422).json({ errors: errors.array() });
   }
   try {
-    const cohort = await Cohorts.insertCohort(req.body);
-    res.json(cohort);
+    const application = await Application.insertApplication(req.body);
+    res.json(application);
   } catch (error) {
     next(error);
   }
@@ -41,11 +41,11 @@ const update = async (req, res, next) => {
     res.status(422).json({ errors: errors.array() });
   }
   try {
-    const cohort = await Cohorts.updateCohort({
+    const application = await Application.updateApplication({
       id: req.params.id,
-      cohortInfo: req.body
+      applicationInfo: req.body
     });
-    res.json(cohort);
+    res.json(application);
   } catch (error) {
     next(error);
   }
@@ -53,7 +53,7 @@ const update = async (req, res, next) => {
 
 const del = async (req, res, next) => {
   try {
-    const del = await Cohorts.deleteCohort({ id: req.params.id });
+    const del = await Application.deleteApplication({ id: req.params.id });
     res.json(del);
   } catch (error) {
     next(error);
