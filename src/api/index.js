@@ -5,7 +5,7 @@ const { usersRouter } = require('../routes/users/users.router');
 const { cohortsRouter } = require('../routes/cohorts/cohorts.router');
 
 const router = express.Router();
-router.use('/health', healthRouter);
+router.use('/', healthRouter);
 router.use('/users', usersRouter);
 router.use('/cohorts', cohortsRouter);
 
