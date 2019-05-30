@@ -1,7 +1,5 @@
-const database = require('knex')(config);
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
-const config = require('../../knexfile');
 
 const decodeBase64 = base64 => Buffer.from(base64, 'base64').toString('ascii');
 const getAuthToken = (req) => {
