@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get(
   '',
-  authorizeUserForEndpoint(['read:users:all']),
+  // authorizeUserForEndpoint(['read:users:all']),
   usersController.list,
 );
 router.post(
