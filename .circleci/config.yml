@@ -1,9 +1,11 @@
-version: 2
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.0.0
+
 jobs:
-  build:
+  ci:
     docker:
       - image: circleci/node:10
-
     steps:
       - checkout
       - run: mkdir reports && mkdir reports/eslint
@@ -13,9 +15,9 @@ jobs:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install
+          command: yarn install --frozen-lockfile
       - save_cache:
-          name: Save Yarn Package cache
+          name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
@@ -23,9 +25,22 @@ jobs:
           name: lint
           command: yarn lint:ci
           environment:
-            ESLINT_REPORT: ./reports/eslint/eslint.xml
+            ESLINT_REPORT: ./reports/eslint/eslint-results.xml
           when: always
       - store_artifacts:
           path: reports
       - store_test_results:
           path: reports
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - ci
+      - aws-ecr/build-and-push-image:
+          requires:
+            - ci
+          filters:
+            branches:
+              only: master
+          repo: bridge-repo
+          tag: "${CIRCLE_SHA1}"
